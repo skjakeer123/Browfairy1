@@ -2024,21 +2024,26 @@
     }
   </style>
 
-  <!-- CHAT BOT CODE -->
+ <!-- CHAT BOT CODE -->
   <button class="chat-icon-button" onclick="openChat()">
     <i class="fas fa-comment-dots"></i>
   </button>
 
   <div id="chatbot-popup">
     <header>
-      Your Browfairy
+      <div class="header-content">
+        <span class="header-title">Your Browfairy</span>
+        <span class="header-tip">For accurate info, verify with us directly</span>
+      </div>
       <span class="close-btn" onclick="closeChat()">&times;</span>
     </header>
     <div id="chat-content"></div>
     <div class="chat-footer">
       <input type="text" id="chat-input" placeholder="Type your message...">
-      <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
-      <div class="tip-text">💡 Tip: For accurate info, verify with us directly</div>
+      <div class="chat-footer-controls">
+        <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
+        <span class="powered-by">Powered by HyperionAI Solution</span>
+      </div>
     </div>
   </div>
 
@@ -2100,9 +2105,28 @@
       border-top-right-radius: 15px;
     }
 
+    .header-content {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    .header-title {
+      font-weight: bold;
+      margin-right: 8px;
+      white-space: nowrap;
+    }
+
+    .header-tip {
+      font-size: 10px;
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+
     #chatbot-popup header .close-btn {
       font-size: 14px;
       cursor: pointer;
+      margin-left: 5px;
     }
 
     #chat-content {
@@ -2149,11 +2173,10 @@
       font-size: 12px;
     }
 
-    .tip-text {
-      font-size: 11px;
+    .powered-by {
+      font-size: 10px;
       color: #666;
       font-style: italic;
-      margin-top: 5px;
     }
 
     .chat-message {
@@ -2229,6 +2252,14 @@
         right: 10px;
         left: auto;
       }
+      
+      .header-tip {
+        font-size: 8px;
+      }
+      
+      .powered-by {
+        font-size: 8px;
+      }
     }
   </style>
 
@@ -2294,7 +2325,7 @@
 
         setTimeout(() => {
           removeTyping();
-          appendMessage('Bot', botReply);
+          appendMessage('Fairy', botReply);
         }, 1000);
       }
     });
