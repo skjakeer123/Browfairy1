@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>course – Brown Fairy</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Shared styles & fonts -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    .About-title { font-family: 'Lobster Two', cursive; }
+    #bg-video { position: fixed; inset: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -2; }
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: -1; }
+    .hero { display: flex; flex-direction: column; justify-content: left; align-items: left; text-align: left; min-height: 80vh; padding-top: 120px; }
+    .hero h1 { font-family: 'Dancing Script', cursive; font-size: 84px; color: #DAA520; margin-bottom: 12px; }
+    .hero .tagline { font-size: 22px; font-weight: 500; color: #fff; letter-spacing: 1px; max-width: 850px; margin: 0 auto; }
+    .navbar { background-color: transparent; position: relative; z-index: 1000; }
+    .navbar .nav-link { color: white; font-weight: 500; }
+    .navbar .nav-link:hover, .navbar .nav-link:focus { color: #FFD700; }
+    .navbar-toggler { border-color: rgba(255,255,255,0.2); }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 215, 0, 0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    .has-dropdown {
+      position: relative;
+    }
+
+    .has-dropdown .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      padding: 10px 0;
+      list-style: none;
+      min-width: 200px;
+      z-index: 999;
+    }
+
+    
+
+    .dropdown li a {
+      color: black;
+      padding: 10px 20px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .dropdown li a:hover {
+      color: #FFD700;
+    }
+
+    .has-dropdown > a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+
+                           /* Nav Buttons */
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: black;
+    padding: 1rem;
+    margin-top: 20px;
+    z-index: 9999;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 70vw; /* 🔧 Increase this for wider menu */
+    max-width: 400px; /* Optional max-width */
+    border-radius: 0;
+  }
+
+  .navbar-nav .nav-link {
+    color: white !important;
+    background-color: black;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: #222;
+    color: #FFD700 !important;
+  }
+
+  .dropdown,
+  .dropdown-menu {
+    background-color: black;
+  }
+
+  .dropdown-item {
+    color: black !important;
+    background-color: black;
+  }
+
+  .dropdown-item:hover {
+    background-color: #222;
+    color: #FFD700 !important;
+  }
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1000;
+  width: 100%;
+}
+
+.dropdown.show {
+  display: block;
+}
+                            /* Logo */
+.studio-logo {
+ 
+  filter: brightness(1.8); /* increase brightness */
+}
+.logo-container {
+  position: absolute;
+  top: 3px;
+  left: 20px;
+  z-index: 1001;
+}
+
+.studio-logo {
+  max-height: 90px; /* Increased height */
+  filter: brightness(1.8); /* Brightness boost */
+  width: auto;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .studio-logo {
+    max-height: 70px; /* smaller on mobile */
+  }
+
+  .logo-container {
+    top: 5px;
+    left: 15px;
+  }
+}
+
+
+
+ 
+                              /* Burger Toggle Box */
+
+
+.navbar-toggler {
+  position: absolute !important;
+  bottom: 5px;          /* 👈 Distance from the bottom */
+  right: -8px;           /* 👈 Distance from the right */
+  z-index: 1002;
+  background-color: white;
+  border: none;
+  width: 45px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 0;
+}
+
+
+/* Center Hamburger Lines */
+.navbar-toggler-icon {
+  background-image: none;
+  width: 25px;             /* Line width */
+  height: 3px;             /* Line thickness */
+  background-color: gold;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+/* Top and Bottom Lines */
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  width: 25px;             /* Match center line */
+  height: 3px;
+  background-color: gold;
+  left: 0;
+  border-radius: 2px;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;               /* Space above center line */
+}
+
+.navbar-toggler-icon::after {
+  top: 8px;                /* Space below center line */
+}
+
+
+
+
+
+
+
+                    /* Mobile View: Screen width less than 768px */
+
+
+@media (max-width: 767.98px) {
+  .About-title {
+    font-size: 4.5rem !important; /* Adjust this value as needed */
+    text-align: center;          /* Optional: center the text */
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+
+
+
+
+                                      <!--Chat Bot Code-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chatbot Final Version</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+   .chat-icon-button {
+  background-color: goldenrod;
+  color: white;
+  width: 70px;   /* Slightly larger */
+  height: 70px;  /* Equal width and height */
+  font-size: 30px;  /* Increase icon size */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 150px;
+  right: 50px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+    #chatbot-popup {
+      display: none;
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #chatbot-popup.active {
+      display: flex;
+    }
+
+    #chatbot-popup header {
+      background: goldenrod;
+      color: white;
+      padding: 5px 10px;
+      font-size: 13px;
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    #chatbot-popup header .close-btn {
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    #chat-content {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    #chat-input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      pointer-events: none;
+    }
+
+    #chatbot-popup.active #chat-input {
+      pointer-events: auto;
+    }
+
+    .chat-footer {
+      padding: 10px;
+      border-top: 1px solid #ddd;
+      background-color: #f9f9f9;
+    }
+
+    .clear-btn {
+      background-color: #ccc;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .chat-message {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .user-message {
+      justify-content: flex-start;
+    }
+
+    .bot-message {
+      justify-content: flex-end;
+    }
+
+    .message-bubble {
+      padding: 8px 12px;
+      border-radius: 12px;
+      max-width: 70%;
+      word-wrap: break-word;
+    }
+
+    .user-bubble {
+      background-color: #f1f1f1;
+      color: #000;
+    }
+
+    .bot-bubble {
+      background-color: goldenrod;
+      color: white;
+    }
+
+    .typing {
+      font-style: italic;
+      opacity: 0.6;
+    }
+
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .quick-reply-btn {
+      background: #eee;
+      padding: 5px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+
+    @media (max-width: 767px) {
+  .chat-icon-button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    top: 100px;   /* Move up */
+    right: 18px;  /* Push more to right */
+    left: auto;   /* Ensure it stays on right */
+  }
+
+  #chatbot-popup {
+    width: 250px;
+    height: 350px;
+    bottom: 80px;
+    right: 10px;
+    left: auto;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <button class="chat-icon-button" onclick="openChat()">
+    <i class="fas fa-comment-dots"></i>
+  </button>
+
+  <div id="chatbot-popup">
+    <header>
+      Your Browfairy
+      <span class="close-btn" onclick="closeChat()">&times;</span>
+    </header>
+    <div id="chat-content"></div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type your message...">
+      <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
+    </div>
+  </div>
+
+  <script>
+    const responses = {
+  "hi": "Hi, I am your Browfairy. How may I help you today? Please note that while my responses are almost correct, it's always suggested to call/WhatsApp us directly for accurate answers.",
+  "hello": "Hello! Feel free to ask me any questions about our services. For accurate info, it's always best to call or WhatsApp us.",
+  "timings": "We are open from 11 AM to 8 PM every day.",
+  "what are your timings": "We are open from 11 AM to 8 PM every day.",
+  "where is the studio located": "It's located in Kondapur, Hyderabad.",
+  "are weekends open": "Yes, we are open all days. But you need to book a prior appointment.",
+  "how can i book my appointment": "You can call/WhatsApp us on xxxx for booking the appointment.",
+  "how many sessions for eyebrows": "Two sessions are typically needed for eyebrows. The first session creates the shape and color, while the second perfects the result.",
+  "how many sessions for lips": "2-3 sessions are required for lips procedures depending on the skin type.",
+  "how long does the process take": "A procedure typically takes between 2-3 hours.",
+  "can we have a phone consultation": "Yes, absolutely. Please call/WhatsApp us on xxxx.",
+  "is it permanent": "It’s a semi-permanent makeup that lasts for at least 2-3 years. After that, a touch-up session will maintain the results.",
+  "how many sessions for long lasting results": "Two sessions are required for long-lasting results.",
+  "does it hurt": "There will be slight discomfort but it won’t be painful. A numbing cream is applied during the process to keep you comfortable.",
+  "is it painful": "There will be slight discomfort but it won’t be painful. A numbing cream is applied during the process to keep you comfortable.",
+  "what is pmu": "PMU stands for Permanent Makeup, a cosmetic tattoo technique that enhances features like eyebrows, lips, and eyes using pigments implanted into the skin. It saves time, boosts confidence, and gives a long-lasting polished look.",
+  "is it safe": "Yes, PMU is safe when performed by a trained professional in a sterile environment. However, it may not be suitable for everyone like pregnant women, breastfeeding mothers, or those on blood thinner medications.",
+  "how long does a lip procedure last": "It typically takes 2-3 hours for the procedure and the results last for at least 2-3 years.",
+  "default": "Please call/WhatsApp us on xxxx or DM on Instagram to get accurate responses."
+};
+
+
+    const defaultReply = "Please visit our Instagram page for more details: <a href='https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz' target='_blank'>Browfairy Instagram</a>";
+
+    function openChat() {
+      const chatPopup = document.getElementById('chatbot-popup');
+      const chatContent = document.getElementById('chat-content');
+
+      chatPopup.classList.add('active');
+
+      if (!chatContent.innerHTML.includes('Welcome to Brownfairy!')) {
+        appendMessage('Bot', 'Welcome to Brownfairy! I can assist you with FAQs and service-related questions.');
+        showQuickReplies(['What is microblading', 'Is it safe', 'Does it hurt']);
+      }
+    }
+
+    function closeChat() {
+      document.getElementById('chatbot-popup').classList.remove('active');
+    }
+
+    function clearChat() {
+      document.getElementById('chat-content').innerHTML = '';
+    }
+
+    document.getElementById('chat-input').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        let userInput = this.value.trim().toLowerCase();
+        if (userInput === '') return;
+
+        appendMessage('You', userInput);
+        this.value = '';
+        showTyping();
+
+        let botReplyContent = responses[userInput] || defaultReply;
+let instagramLink = "<br><br>👉 For more, visit our Instagram: <a href='https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz' target='_blank'>Browfairy Instagram</a>";
+let botReply = botReplyContent + instagramLink;
+
+        
+        setTimeout(() => {
+          removeTyping();
+          appendMessage('Bot', botReply);
+        }, 1000);
+      }
+    });
+
+    function appendMessage(sender, message) {
+      const chatContent = document.getElementById('chat-content');
+      const messageDiv = document.createElement('div');
+      const bubbleDiv = document.createElement('div');
+
+      messageDiv.classList.add('chat-message');
+      bubbleDiv.classList.add('message-bubble');
+
+      if (sender === 'You') {
+        messageDiv.classList.add('user-message');
+        bubbleDiv.classList.add('user-bubble');
+      } else {
+        messageDiv.classList.add('bot-message');
+        bubbleDiv.classList.add('bot-bubble');
+      }
+
+      bubbleDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+      messageDiv.appendChild(bubbleDiv);
+      chatContent.appendChild(messageDiv);
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+    function showTyping() {
+      const chatContent = document.getElementById('chat-content');
+      const typingDiv = document.createElement('div');
+      typingDiv.id = 'typing-indicator';
+      typingDiv.className = 'chat-message bot-message';
+      typingDiv.innerHTML = `<div class='message-bubble bot-bubble typing'>Typing...</div>`;
+      chatContent.appendChild(typingDiv);
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+    function removeTyping() {
+      const typingDiv = document.getElementById('typing-indicator');
+      if (typingDiv) typingDiv.remove();
+    }
+
+    function showQuickReplies(options) {
+      const chatContent = document.getElementById('chat-content');
+      const repliesDiv = document.createElement('div');
+      repliesDiv.className = 'quick-replies';
+
+      options.forEach(option => {
+        const btn = document.createElement('div');
+        btn.className = 'quick-reply-btn';
+        btn.innerText = option;
+        btn.onclick = function() {
+          document.getElementById('chat-input').value = option;
+          document.getElementById('chat-input').focus();
+        };
+        repliesDiv.appendChild(btn);
+      });
+
+      chatContent.appendChild(repliesDiv);
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+    document.addEventListener('click', function(event) {
+      const chatPopup = document.getElementById('chatbot-popup');
+      const chatButton = document.querySelector('.chat-icon-button');
+      if (chatPopup.classList.contains('active') && !chatPopup.contains(event.target) && !chatButton.contains(event.target)) {
+        closeChat();
+      }
+    });
+
+  </script>
+
+</body>
+
+
+
+
+
+
+<video id="bg-video" autoplay muted loop playsinline>
+  <source src="video2.mp4" type="video/mp4" />
+</video>
+<div class="overlay"></div>
+<header>
+  <div class="logo-container">
+  <img src="logo.png" alt="Logo" class="studio-logo img-fluid">
+</div>
+
+
+</div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about2.html">About</a></li>
+          <li class="has-dropdown nav-item">
+            <a class="nav-link" href="#">Services <i class="fa-solid fa-chevron-down chev"></i></a>
+            <ul class="dropdown">
+              <li><a class="dropdown-item" href="microblading2.html">Microblading</a></li>
+              <li><a class="dropdown-item" href="Combination brows2.html">Combination Brows</a></li>
+              <li><a class="dropdown-item" href="ombre-brows2.html">Ombré Powder Brows</a></li>
+              <li><a class="dropdown-item" href="Lip neutralization2.html">Lip Neutralization</a></li>
+              <li><a class="dropdown-item" href="Lip blush2.html">Lip Blush</a></li>
+              <li><a class="dropdown-item" href="Lash liner2.html">Lash Liner</a></li>
+              <li><a class="dropdown-item" href="nano-hairstrokes2.html">Nano Hairstrokes Brows</a></li>
+              <li><a class="dropdown-item" href="Nano combination brows2.html">Nano Combination Brows</a></li>
+              <li><a class="dropdown-item" href="Lash lift and tint2.html">Lash Lift and Tint</a></li>
+              <li><a class="dropdown-item" href="Brow lamination and tint2.html">Brow Lamination and Tint</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="Online Training Courses2.html">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="Blogs2.html">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact2.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="FAQS2.html">FAQS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1 class="course-title" style="font-family: 'Playfair Display', serif; font-weight: 700; position: relative; top: -50px;"></h1>
+</section>
+
+<!-- Info Card Section -->
+<section class="info-card container my-5">
+  <section class="info-card" style="display: flex; align-items: center; justify-content: center; padding: 40px 20px; background: white; max-width: 1200px; margin: auto; position: relative; top: -500px; box-shadow: 0 0 15px rgba(0,0,0,0.05); flex-direction: column;">
+    <div class="row align-items-center w-100 m-0">
+      <div class="col-md-6 col-12 text-center order-1 order-md-2 mb-4 mb-md-0">
+        <img src="images/about2.jpg" class="img-fluid rounded" alt="Ridhima Sony">
+      </div>
+      <div class="col-md-6 col-12 order-2 order-md-1">
+         <h2>Online Beauty Angels Microblading Trial Course</h2>
+      <p>
+        Get access to the first two levels of our Basic Microblade & Shade Online Course
+        directly under the supervision of a Beauty Angels Master Trainer. You can upgrade to our
+        comprehensive Basic Live or Online Microblade & Shade Course within 1 month and get credit
+        towards either course!
+      </p>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Auto-Close Mobile Menu Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdownTrigger = document.querySelector('.has-dropdown > a');
+    const dropdownMenu = dropdownTrigger.nextElementSibling;
+
+    // Toggle dropdown on Services click
+    dropdownTrigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation(); // Prevents event from reaching document listener
+      dropdownMenu.classList.toggle('show');
+    });
+
+    // Also stop propagation on menu click so it doesn't close when clicking inside
+    dropdownMenu.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+
+    // Close dropdown when clicking anywhere else
+    document.addEventListener('click', function () {
+      dropdownMenu.classList.remove('show');
+    });
+  });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth <= 768) { // Mobile screen check
+    const logoContainer = document.querySelector('.logo-container');
+    if (logoContainer) {
+      // Wrap logo in a link
+      const link = document.createElement('a');
+      link.href = 'index.html';
+      // Move the existing logo into the link
+      while (logoContainer.firstChild) {
+        link.appendChild(logoContainer.firstChild);
+      }
+      logoContainer.appendChild(link);
+    }
+  }
+});
+</script>
+<style>@media (max-width: 768px) {
+  .logo-container a {
+    display: inline-block;
+    position: relative;
+    
+  }
+  .logo-container a::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+  }
+}
+</style>
+
+
+</body>
+</html>

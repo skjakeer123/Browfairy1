@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Permanent Makeup Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fdf6f5;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+.left-panel {
+  width: 35%;
+  padding: 40px;
+  /* Add padding to the top to push content down */
+  padding-bottom: -500px;
+  box-sizing: border-box;
+  background: #fdf6f5;
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Ensure it starts from the top of the padding */
+}
+    .left-panel p {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    .left-panel h2 {
+      font-size: 2.5rem;
+      margin: 0;
+      font-family: 'Poppins', sans-serif; 
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    .left-panel .price {
+      font-weight: bold;
+      color: #d59c8b;
+      margin-top: 5px;
+    }
+
+    .right-panel {
+      margin-left: 35%;
+      width: 65%;
+      overflow-y: auto;
+      height: 100vh;
+       scrollbar-width: none; 
+    }
+
+    .slide {
+      height: 80vh;
+      position: relative;
+    }
+
+    .slide img, .slide video {
+      width: 100%;
+      height: 60%;
+      object-fit: cover;
+      border-radius: 1px;
+    }
+.video-overlay {
+  position: absolute;
+  top: 350px; /* 🔽 Moved closer to the bottom */
+  right: -1px;
+  background: white;
+  padding: 30px;
+  max-width: 700px;
+  height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 1px;
+  overflow-y: hidden;
+}
+
+
+
+    .video-overlay h3 {
+      margin-top: 0;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      padding: 10px;
+      text-transform: capitalize;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        overflow: auto;
+      }
+      .left-panel, .right-panel {
+        width: 100%;
+        position: static;
+        margin: 0;
+        height: 100px;
+      }
+      .video-overlay {
+        position: static;
+        margin-top: 20px;
+      }
+    }
+
+
+
+    .marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #fdf6f5;
+  margin-bottom: px;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  color: gold;
+  font-size: 100px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes swingUpDown {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-10px); }
+  50%  { transform: translateY(10px); }
+  75%  { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.swing-overlay {
+  animation: swingUpDown 1s ease;
+}
+
+
+  </style>
+</head>
+<body>
+
+
+<div class="container">
+  <div class="left-panel">
+    <p id="page-count">1/10</p>
+    <h2 id="service-title">Microblading</h2>
+    <p id="service-price" class="price"></p>
+  </div>
+
+  <div class="right-panel" id="rightPanel">
+    <div class="slide">
+      <video autoplay muted loop>
+        <source src="videos/microblading.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <h3>Microblading</h3>
+                <p>Microblading is a manual technique considered to be semi-permanent makeup or cosmetic tattoo, also known as eyebrow embroidery, microstroking or 3D brows.</p>        <p>Microblading is a manual technique considered to be semi-permanent makeup or cosmetic tattoo, also known as eyebrow embroidery, microstroking or 3D brows.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <video autoplay muted loop>
+        <source src="videos/combination brows.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <h3>Combination brows</h3>
+        <p>Microshading creates a soft powdered look that mimics brow makeup, giving the brows a more defined and fuller appearance.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <video autoplay muted loop>
+        <source src="videos/ombre.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <h3>Ombré Powder Brows</h3>
+        <p>Ombre brows are shaded brows that darken at the tail and lighten at the front, creating a seamless gradient effect.</p>
+      </div>
+    </div>
+    
+    <div class="slide">
+      <video autoplay muted loop>
+        <source src="videos/dark lip neutralization.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <h3>Lip Neutralization</h3>
+        <p>Lip Blush is a semi-permanent tattoo that enhances the natural color and shape of your lips, giving them a subtle tint and a fuller appearance.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <video autoplay muted loop>
+        <source src="videos/lip blush.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <h3>Lip blush</h3>
+        <p>Eyeliner Tattoo is a cosmetic procedure that involves implanting pigment along the lash line to create the look of fuller, darker lashes and defined eyes.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <video autoplay muted loop>
+        <source src="videos/lash liner.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <h3>Lash liner</h3>
+        <p>Scalp Micropigmentation is a non-surgical procedure that uses micro-needles to deposit pigment into the scalp, creating the appearance of tiny hair follicles.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <video autoplay muted loop>
+        <source src="videos/nano brows.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <h3>Nano-Haitstrokes</h3>
+        <p>A beauty mark tattoo is a cosmetic procedure to create a small, artificial mole or freckle on the face or body.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <video autoplay muted loop>
+        <source src="videos/nano combination brows.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <h3>Nano combination brows</h3>
+        <p>Freckle tattoos are a cosmetic procedure that involves tattooing small, semi-permanent dots on the face to create the look of natural freckles.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <video autoplay muted loop>
+        <source src="videos/lash lift & tint.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <h3>Lash lift and tint</h3>
+        <p>Color correction is a specialized technique used to neutralize or adjust the color of previous permanent makeup that has faded or changed color over time.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <video autoplay muted loop>
+        <source src="videos/eyebrows lamination & tint.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <h3>Brow lamination and tint</h3>
+        <p>A touch-up session is a follow-up appointment for permanent makeup to refine the color, shape, and overall appearance of the initial procedure.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const services = [
+    { title: "Microblading", price: "" },
+    { title: "Combination brows", price: "" },
+    { title: "Ombre Brows", price: "" },
+    { title: "Lip neutralization", price: "" },
+    { title: "Lip blush", price: "" },
+    { title: "Lash liner", price: "" },
+    { title: "Nano-Hairstrokes", price: ""},
+    { title: "Nano combination brows", price: "" },
+    { title: "Lash lift and tint", price: "" },
+    { title: "Brow lamination and tint", price: "" }
+  ];
+
+  const totalPages = services.length;
+  const rightPanel = document.getElementById("rightPanel");
+  const pageCount = document.getElementById("page-count");
+  const serviceTitle = document.getElementById("service-title");
+  const servicePrice = document.getElementById("service-price");
+  const slides = document.querySelectorAll(".slide");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const index = [...slides].indexOf(entry.target);
+        if (index !== -1) {
+          const service = services[index];
+          pageCount.textContent = `${index + 1}/${totalPages}`;
+          serviceTitle.textContent = service.title;
+          servicePrice.textContent = service.price;
+
+          // Add swing animation to the full overlay
+          const overlay = entry.target.querySelector('.video-overlay');
+          overlay.classList.add('swing-overlay');
+
+          // Remove the animation class after animation ends so it can trigger again next time
+          setTimeout(() => {
+            overlay.classList.remove('swing-overlay');
+          }, 1000); // Match duration in CSS
+        }
+      }
+    });
+  }, {
+    root: rightPanel,
+    threshold: 0.5
+  });
+
+  slides.forEach(slide => observer.observe(slide));
+</script>
+
+
+</body>
+</html>
