@@ -759,64 +759,136 @@ header.shrink {
 
 
 
-  <!-- Follow Us Section -->
-<!-- Follow Us Section -->
-<section class="gallery-contact-section" style="background-color: grey; color: white; padding: 60px 0; position: relative; top: -1px;">
-  <div class="container">
-    <div class="row align-items-start g-5">
-      <!-- Left Column: Images -->
-      <div class="col-md-6 col-12 d-flex gap-3 justify-content-center slide-on-scroll">
-        <div style="width: 48%; overflow: hidden; border-radius: 20px;">
-          <img src="images/service1.jpg" alt="Image 1" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
+  <!-- FOLLOW US SECTION -->
+  <section class="gallery-contact-section" style="background-color: grey; color: white; padding: 40px 0; position: relative; margin-top: -350px;">
+    <div class="container">
+      <div class="row align-items-start g-5">
+        <!-- Left Column: Images -->
+        <div class="col-md-6 col-12 d-flex gap-3 justify-content-center slide-on-scroll">
+          <div style="width: 48%; overflow: hidden; border-radius: 20px;">
+            <img src="service1.jpg" alt="Image 1" class="img-fluid" style="object-fit: cover; height: 100%;">
+          </div>
+          <div style="width: 48%; overflow: hidden; border-radius: 20px;">
+            <img src="service5.jpg" alt="Image 2" class="img-fluid" style="object-fit: cover; height: 100%;">
+          </div>
         </div>
-        <div style="width: 48%; overflow: hidden; border-radius: 20px;">
-          <img src="images/service5.jpg" alt="Image 2" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
-        </div>
-      </div>
 
-      <!-- Right Column: Follow Us Info -->
-      <div class="col-md-6 col-12 d-flex flex-column align-items-center gap-4 slide-on-scroll">
-        <div class="follow-text">Follow Us</div>
+        <!-- Right Column: Follow Us Info -->
+        <div class="col-md-6 col-12 d-flex flex-column align-items-center gap-4 slide-on-scroll">
+          <div class="follow-text" style="font-size: 45px;">Follow Us</div>
 
-        <!-- Phone -->
-<div class="text-center">
-  <i class="fa-solid fa-phone" style="color: #FFD700; margin-right: 8px; font-size: 25px;"></i>
-  <strong style="font-size: 25px;">PHONE</strong><br>
-  <a href="https://wa.me/919908063645" target="_blank" style="color: white; font-size: 25px;">+91 9908063645</a>
-  <div style="height: 2px; width: 180px; background-color: white; margin: 20px auto 0;"></div>
-</div>
+          <!-- Phone -->
+          <div class="text-center">
+            <i class="fa-solid fa-phone" style="color: #FFD700; margin-right: 8px; font-size: 25px;"></i>
+            <strong style="font-size: 25px;">PHONE</strong><br>
+            <a href="tel:+919908063645" class="glow-text-button">+91 9908063645</a>
+            <div style="height: 2px; width: 180px; background-color: white; margin: 20px auto 0;"></div>
+          </div>
+          
+          <!-- Instagram -->
+          <div class="text-center">
+            <div style="font-size: 25px; color: white;">
+              <i class="fa-brands fa-instagram" style="margin-right: 8px;"></i>Instagram
+            </div>
 
+            <div style="font-size: 22px; font-weight: 600; margin-top: 10px;">
+              <a href="https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz" 
+                 target="_blank" 
+                 class="glow-text-button">
+                @browfairy_pmustudio
+              </a>
+            </div>
 
-<!-- Instagram -->
-<div class="text-center">
-  <div style="font-size: 25px; color: white;">
-    <i class="fa-brands fa-instagram" style="margin-right: 8px;"></i>Instagram
-  </div>
+            <div style="height: 2px; width: 250px; background-color: white; margin: 20px auto 0;"></div>
+          </div>
 
-  <div style="font-size: 22px; font-weight: 600; margin-top: 10px;">
-    <a href="https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz" 
-       target="_blank" 
-       style="color: white; text-decoration: none;">
-      @browfairy_pmustudio
-    </a>
-  </div>
-
-  <div style="height: 2px; width: 250px; background-color: white; margin: 20px auto 0;"></div>
-</div>
-
-
-        <!-- Email -->
-        <div class="text-center">
-          <i class="fa-solid fa-envelope" style="color: #FFD700; margin-right: 8px; font-size: 22px;"></i>
-          <strong style="font-size: 22px;">Email</strong><br>
-          <a href="mailto:ridhimas.browfairy@gmail.com" style="color: white; font-size: 20px;">ridhimas.browfairy@gmail.com</a>
-          <div style="height: 2px; width: 300px; background-color: white; margin: 20px auto 0;"></div>
+          <!-- Email -->
+          <div class="text-center">
+            <i class="fa-solid fa-envelope" style="color: #FFD700; margin-right: 8px; font-size: 22px;"></i>
+            <strong style="font-size: 22px;">Email</strong><br>
+            <a href="mailto:ridhimas.browfairy@gmail.com" class="glow-text-button">ridhimas.browfairy@gmail.com</a>
+            <div style="height: 2px; width: 300px; background-color: white; margin: 20px auto 0;"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
+    
+    <style>
+      .glow-text-button {
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+        font-size: inherit;
+        font-weight: inherit;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        animation: text-glow 2s ease-in-out infinite;
+      }
+      
+      /* Text glow animation */
+      @keyframes text-glow {
+        0% {
+          text-shadow: 0 0 5px rgba(255, 215, 0, 0.7),
+                       0 0 10px rgba(255, 215, 0, 0.5),
+                       0 0 15px rgba(255, 215, 0, 0.3);
+        }
+        50% {
+          text-shadow: 0 0 8px rgba(255, 215, 0, 0.9),
+                       0 0 15px rgba(255, 215, 0, 0.7),
+                       0 0 20px rgba(255, 215, 0, 0.5),
+                       0 0 25px rgba(255, 215, 0, 0.3);
+        }
+        100% {
+          text-shadow: 0 0 5px rgba(255, 215, 0, 0.7),
+                       0 0 10px rgba(255, 215, 0, 0.5),
+                       0 0 15px rgba(255, 215, 0, 0.3);
+        }
+      }
+      
+      /* Hover effect */
+      .glow-text-button:hover {
+        color: #FFD700;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 1),
+                     0 0 20px rgba(255, 215, 0, 0.8),
+                     0 0 30px rgba(255, 215, 0, 0.6),
+                     0 0 40px rgba(255, 215, 0, 0.4);
+        transform: translateY(-5px);
+      }
+      
+      /* Add a subtle underline that appears on hover */
+      .glow-text-button::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #FFD700;
+        box-shadow: 0 0 5px #FFD700;
+        transition: width 0.3s ease;
+      }
+      
+      .glow-text-button:hover::after {
+        width: 100%;
+      }
+      
+      /* Mobile adjustment - move section slightly to bottom */
+      @media (max-width: 768px) {
+        .gallery-contact-section {
+          margin-top: 50px;
+        }
+        
+        /* Reduce animation intensity on mobile */
+        .glow-text-button {
+          animation: text-glow 2s ease-in-out infinite;
+        }
+        
+        .glow-text-button:hover {
+          transform: translateY(-3px);
+        }
+      }
+    </style>
 <!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1042,4 +1114,5 @@ document.addEventListener("DOMContentLoaded", function () {
 </style>
 
 </body>
+
 </html>
